@@ -1,0 +1,189 @@
+/*
+ * Módulo loja da plataforma TechShop.
+ * Projecto: TechShop — Loja Virtual de Acessórios Informáticos
+ * Autor: Bernabé Rofino Gabriel
+ * Instituição: Universidade Licungo
+ * Curso: Mestrado em Tecnologias Educativas e Inovação
+ * Módulo: Aplicações Web
+ * Docente: Prof. Félix Singo
+ * Ano: 2026
+ * Direitos: Todos os direitos reservados.
+ */
+
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:#f8fafc;color:#15273a}a{text-decoration:none;color:inherit}.wrap{max-width:1180px;margin:auto;padding:0 22px}.top{background:#fff;border-bottom:1px solid #e8eef4}.nav{display:flex;align-items:center;justify-content:space-between;height:78px}.brand{display:flex;align-items:center;gap:12px;color:#075d9c}.brand-mark{font-size:30px;background:#e8f4ff;border-radius:12px;padding:6px 12px}.brand strong{display:block;font-size:24px}.brand small{display:block;font-size:12px;color:#6d8091}.admin-link{font-size:13px;color:#617b92}.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:30px;align-items:center;margin:28px 0 14px;padding:50px 55px;border-radius:20px;background:linear-gradient(110deg,#e5f4ff,#f8fcff 60%,#d3eafb);overflow:hidden}.eyebrow{font-size:11px;letter-spacing:2px;font-weight:800;color:#0873bd}.hero h1{font-size:clamp(30px,4vw,49px);line-height:1.12;margin:15px 0;color:#102b45}.hero p,.heading p{color:#698094;line-height:1.65}.primary{background:#0874c5;color:#fff;border:0;border-radius:9px;padding:13px 21px;font-size:14px;font-weight:700;cursor:pointer;display:inline-block}.hero .primary{margin-top:12px}.hero-graphic{height:240px;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-4deg)}.screen{width:310px;height:185px;border:12px solid #243d52;border-radius:15px;background:linear-gradient(130deg,#7dd2fc,#1768ad);box-shadow:12px 22px 30px #7ba8c044;display:grid;place-items:center}.screen-inner{color:white;font-size:35px;font-weight:900;letter-spacing:2px}.screen-inner span{color:#b7e9ff}.keyboard{height:17px;width:350px;background:#36556b;transform:perspective(80px) rotateX(25deg);border-radius:3px 3px 16px 16px}.features{display:flex;gap:32px;flex-wrap:wrap;padding:17px 24px;background:white;border:1px solid #e8eff5;border-radius:12px;color:#46647a;font-size:13px}.catalog{padding:45px 0 65px}.heading h2{font-size:28px;margin:8px 0 2px}.heading p{margin:0}.filters{display:flex;gap:10px;margin:23px 0;align-items:center}.filters input,.filters select{border:1px solid #dce6ee;border-radius:9px;background:white;padding:13px;color:#23394d;font-size:14px;min-width:0}.search{flex:1}.search input{width:100%}.clear{font-size:13px;color:#627c90;padding:8px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.product{border:1px solid #e6edf3;background:white;border-radius:15px;overflow:hidden;transition:transform .2s,box-shadow .2s}.product:hover{transform:translateY(-3px);box-shadow:0 14px 28px #1b40500e}.photo{position:relative;height:205px;background:#f1f7fc;display:flex;align-items:center;justify-content:center;padding:18px}.photo img{width:100%;height:100%;object-fit:contain}.stock{position:absolute;left:12px;top:12px;font-size:11px;background:#e3f8ed;color:#168047;padding:6px 9px;border-radius:20px;font-weight:700}.stock.low{background:#fff3df;color:#9a5c00}.stock.out{background:#feeaea;color:#b32727}.details{padding:16px}.category{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:#8295a4}.details h3{font-size:15px;min-height:42px;line-height:1.4;margin:9px 0 12px}.price{display:block;font-size:19px;color:#0766aa;margin-bottom:16px}.contact,.unavailable{display:block;text-align:center;font-size:12px;font-weight:700;padding:11px;border-radius:8px}.contact{background:#edf7ff;color:#0069b1}.contact:hover{background:#dcefff}.unavailable{background:#f4f5f6;color:#8a98a4}.empty{padding:45px;text-align:center;background:white;border-radius:12px;color:#65798c}footer{border-top:1px solid #e7eef4;background:white}.footer-inner{padding-top:24px;padding-bottom:24px;display:flex;justify-content:space-between;color:#7a8c9b;font-size:13px}.footer-inner strong{color:#0874c5}.sr{position:absolute;clip:rect(0,0,0,0);width:1px;height:1px;overflow:hidden}@media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.hero{padding:38px}.screen{width:250px}.keyboard{width:280px}}@media(max-width:650px){.wrap{padding:0 15px}.nav{height:70px}.brand strong{font-size:20px}.admin-link{font-size:11px}.hero{grid-template-columns:1fr;padding:32px 24px}.hero-graphic{display:none}.features{gap:12px}.features span{width:100%}.filters{flex-wrap:wrap}.search{flex-basis:100%}.filters select{flex:1}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.photo{height:150px;padding:10px}.details{padding:12px}.details h3{font-size:13px}.price{font-size:16px}.footer-inner{gap:10px;flex-wrap:wrap}}
+.cart-add{width:100%;border:0;cursor:pointer;background:#0874c5;color:white;margin-bottom:7px}.cart-add:hover{background:#075f9e}.cart-layout{display:grid;grid-template-columns:2fr 1fr;gap:22px;margin:30px 0 70px}.cart-panel{background:white;border:1px solid #e6edf3;border-radius:15px;padding:24px}.cart-row{display:flex;align-items:center;gap:18px;padding:18px 0;border-bottom:1px solid #edf1f5}.cart-row img{width:76px;height:76px;object-fit:contain;background:#f4f8fb;border-radius:8px}.cart-row .item-name{flex:1}.cart-row input[type=number]{width:65px;padding:8px;border:1px solid #ccdce7;border-radius:7px}.cart-row button,.remove{background:#fceaea;color:#a82e2e;border:0;border-radius:7px;padding:9px;cursor:pointer}.cart-total{font-size:24px;color:#0874c5;font-weight:800}.field{display:block;margin:14px 0}.field input,.field textarea,.field select{display:block;width:100%;padding:12px;margin-top:5px;border:1px solid #d6e2ed;border-radius:8px;font:inherit}.alert{background:#fff0ef;color:#9d2525;padding:12px;border-radius:8px;margin:15px 0}.success{background:#e8f8ef;color:#176c40;padding:14px;border-radius:8px}.cart-link{color:#0874c5;font-weight:700}.muted{color:#72879a;font-size:13px}@media(max-width:750px){.cart-layout{grid-template-columns:1fr}.cart-row{flex-wrap:wrap}}
+
+/* Banner de produtos: mantém o visual claro da loja e não interfere no catálogo. */
+.showcase{margin:25px 0 20px;padding:26px 28px 20px;border:1px solid #e3edf5;border-radius:18px;background:#fff;box-shadow:0 10px 28px #123c5908}
+.showcase-head{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-bottom:18px}
+.showcase-head h2{font-size:25px;margin:7px 0}.showcase-head p{color:#71869a;font-size:13px;margin:0}
+.showcase-actions{display:flex;gap:8px}.showcase-arrow{width:37px;height:37px;border:1px solid #dce8f0;border-radius:50%;background:#f6fbff;color:#096fb4;font-size:27px;line-height:1;cursor:pointer}.showcase-arrow:hover{background:#e7f4ff}
+.showcase-window{overflow-x:auto;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-behavior:smooth;outline-offset:3px}.showcase-window::-webkit-scrollbar{display:none}
+.showcase-track{display:flex;gap:14px;padding:3px 2px 12px}.showcase-card{scroll-snap-align:start;flex:0 0 calc((100% - 42px)/4);min-width:0;border:1px solid #e5edf4;border-radius:13px;overflow:hidden;background:white}
+.showcase-photo{height:150px;background:#f3f8fc;padding:12px;display:flex;align-items:center;justify-content:center}.showcase-photo img{width:100%;height:100%;object-fit:contain}
+.showcase-info{padding:14px}.showcase-info h3{font-size:14px;line-height:1.35;margin:8px 0;min-height:38px}.showcase-info strong{display:block;color:#076bb0;font-size:18px}.showcase-stock{display:block;font-size:11px;color:#34805d;margin:8px 0 12px}.showcase-buy{width:100%;border:0;border-radius:8px;background:#0874c5;color:#fff;padding:10px;font-weight:700;cursor:pointer}.showcase-buy:hover{background:#065e9f}
+.showcase-foot{display:flex;justify-content:space-between;gap:10px;align-items:center;color:#8393a3;font-size:12px;margin-top:3px}.showcase-foot button{background:transparent;border:0;color:#0874c5;font:inherit;cursor:pointer}
+/* Adaptação do layout para diferentes dimensões de ecrã. */
+@media(max-width:900px){.showcase-card{flex-basis:calc((100% - 28px)/3)}}
+/* Adaptação do layout para diferentes dimensões de ecrã. */
+@media(max-width:650px){.showcase{padding:18px 13px}.showcase-head h2{font-size:20px}.showcase-head p{font-size:12px}.showcase-card{flex-basis:calc((100% - 12px)/2)}.showcase-photo{height:130px}.showcase-info{padding:10px}.showcase-info strong{font-size:16px}}
+/* Adaptação do layout para diferentes dimensões de ecrã. */
+@media(max-width:380px){.showcase-card{flex-basis:80%}}
+/* Adaptação do layout para diferentes dimensões de ecrã. */
+@media(prefers-reduced-motion:reduce){.showcase-window{scroll-behavior:auto}}
+
+
+/* Banner de slides: regras únicas, sem conflitos com o hero antigo */
+.hero.hero-slider {
+  display:block; position:relative; width:100%; height:360px;
+  margin:26px 0 16px; padding:0; overflow:hidden; border-radius:20px;
+  background:linear-gradient(110deg,#e5f4ff,#f8fcff 60%,#d3eafb);
+}
+.hero-slider .hero-slides { position:relative; width:100%; height:100%; }
+.hero-slider .hero-slide {
+  position:absolute; inset:0; width:100%; height:100%;
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,0.9fr);
+  gap:24px; align-items:center; padding:30px 64px 62px;
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .5s ease, visibility .5s ease;
+}
+.hero-slider .hero-slide.is-active { opacity:1; visibility:visible; pointer-events:auto; z-index:1; }
+.hero-slider .hero-text { min-width:0; max-width:100%; }
+.hero-slider .hero-slide h1 { font-size:clamp(28px,3.5vw,44px); line-height:1.15; margin:12px 0; overflow-wrap:anywhere; }
+.hero-slider .hero-slide p { font-size:14px; margin:8px 0; }
+.hero-slider .hero-price { display:block; color:#0766aa; font-size:28px; margin:12px 0; }
+.hero-slider .hero-slide .primary { margin-top:0; }
+.hero-slider .hero-slide-photo {
+  display:flex; align-items:center; justify-content:center; min-width:0;
+  width:100%; height:245px; padding:14px; overflow:hidden;
+  border-radius:16px; background:rgba(255,255,255,.55);
+}
+.hero-slider .hero-slide-photo img {
+  display:block; width:100%; height:100%; max-width:100%; max-height:100%;
+  object-fit:contain;
+}
+.hero-slider .hero-controls {
+  position:absolute; z-index:4; right:20px; bottom:14px;
+  display:flex; flex-wrap:nowrap; align-items:center; gap:9px;
+}
+.hero-slider .hero-controls>button {
+  border:1px solid #cbddeb; background:#fff; color:#0874c5;
+  border-radius:9px; padding:7px 11px; font:700 13px/1.2 inherit;
+  cursor:pointer; white-space:nowrap;
+}
+.hero-slider .hero-dots { display:flex; align-items:center; gap:7px; }
+.hero-slider .hero-dots button {
+  width:9px; height:9px; flex:none; border:0; padding:0;
+  border-radius:50%; background:#b7cddd; cursor:pointer;
+}
+.hero-slider .hero-dots button.is-active { width:20px; border-radius:8px; background:#0874c5; }
+.nav-actions { display:flex; align-items:center; justify-content:flex-end; gap:18px; flex-wrap:wrap; }
+html,body { max-width:100%; overflow-x:clip; }
+/* Adaptação do layout para diferentes dimensões de ecrã. */
+@media(max-width:900px) {
+  .hero-slider .hero-slide { padding:26px 36px 60px; gap:16px; }
+  .hero-slider .hero-slide-photo { height:220px; }
+}
+/* Adaptação do layout para diferentes dimensões de ecrã. */
+@media(max-width:650px) {
+  .nav { height:auto; min-height:70px; padding-top:12px; padding-bottom:12px; gap:12px; flex-wrap:wrap; }
+  .nav-actions { width:100%; justify-content:space-between; }
+  .hero.hero-slider { height:480px; }
+  .hero-slider .hero-slide {
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:auto 165px;
+    align-content:center; gap:12px; padding:22px 22px 62px;
+  }
+  .hero-slider .hero-slide h1 { font-size:clamp(24px,7vw,33px); margin:9px 0; }
+  .hero-slider .hero-slide p { font-size:13px; }
+  .hero-slider .hero-price { font-size:23px; margin:9px 0; }
+  .hero-slider .hero-slide-photo { height:165px; padding:8px; }
+  .hero-slider .hero-controls { right:12px; bottom:12px; gap:6px; }
+  .hero-slider .hero-controls>button { padding:6px 8px; font-size:12px; }
+}
+/* Adaptação do layout para diferentes dimensões de ecrã. */
+@media(max-width:380px) {
+  .hero.hero-slider { height:470px; }
+  .hero-slider .hero-slide { grid-template-rows:auto 135px; padding:18px 16px 60px; }
+  .hero-slider .hero-slide-photo { height:135px; }
+}
+/* Adaptação do layout para diferentes dimensões de ecrã. */
+@media(prefers-reduced-motion:reduce) { .hero-slider .hero-slide { transition:none; } }
+
+/* Área do cliente: mantém a linguagem visual da loja */
+.account-wrap{padding-top:48px;padding-bottom:70px}.account-card{max-width:520px;margin:auto}.account-card h1{margin-top:0}.account-card .field{display:block;margin:16px 0}.account-card .field input{width:100%;padding:12px;border:1px solid #dce6ee;border-radius:9px;display:block;margin-top:7px;font:inherit}.account-card .primary{width:100%;margin-top:8px}.account-link{color:#0874c5;font-weight:650}.account-error{padding:12px;background:#fff1f1;color:#a21b1b;border-radius:8px}.account-main{padding-top:38px;padding-bottom:70px}.account-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}.account-heading h1{margin:8px 0}.account-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:25px 0 36px}.account-summary strong{font-size:30px;color:#0874c5}.account-summary p{color:#6b8092}.order-card{margin-bottom:14px}.order-head{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}.order-head h3{margin:0}.order-head>div:last-child{display:flex;align-items:center;gap:15px}.order-status{background:#edf7ff;color:#0874c5;border-radius:30px;padding:6px 10px;font-size:12px}.order-items{border-top:1px solid #e8eef4;margin-top:16px;padding-top:12px}.order-items>div{display:flex;justify-content:space-between;gap:12px;padding:7px 0;font-size:14px}.order-items span{white-space:nowrap;color:#617b92}@media(max-width:600px){.account-summary{grid-template-columns:1fr}.order-items>div{flex-wrap:wrap}.account-main{padding-top:24px}}
+
+/* Perfil do cliente */
+.account-identity{display:flex;align-items:center;gap:18px;min-width:0;flex-wrap:wrap}
+.profile-avatar{width:82px;height:82px;border-radius:50%;overflow:hidden;background:#e5f3ff;color:#0874c5;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:700;flex:none;border:3px solid #fff;box-shadow:0 2px 12px #0b4b7914}
+.profile-avatar img{display:block;width:100%;height:100%;object-fit:cover}
+.profile-edit-avatar{width:100px;height:100px;margin:16px auto}
+.account-card .field textarea{width:100%;padding:12px;border:1px solid #dce6ee;border-radius:9px;display:block;margin-top:7px;font:inherit;min-height:70px}
+.account-card .field input[type=file]{background:#f8fbfe}
+.account-card .field small{display:block;margin-top:5px;color:#617b92}
+.account-success{padding:12px;background:#e9f8ee;color:#18633c;border-radius:8px}
+
+/* Menu público com fotografia do cliente, inspirado no cabeçalho administrativo. */
+.public-top{position:relative;z-index:10;background:#fff;border-bottom:1px solid #e8eef4}
+.public-nav{min-height:80px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:12px;padding-bottom:12px}
+.public-nav .brand{flex-shrink:0}
+.public-nav-links{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:12px 20px;min-width:0}
+.public-nav-links>a{color:#48677e;font-size:13px;font-weight:600;white-space:nowrap}
+.public-nav-links>a:hover{color:#0874c5}
+.public-nav-links .public-profile{display:flex;align-items:center;gap:9px;min-width:0}
+.public-profile-avatar{width:40px;height:40px;flex:0 0 40px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:50%;border:2px solid #c8e4f7;background:#e7f4fd;color:#0874c5;font-size:17px;font-weight:800}
+.public-profile-avatar img{width:100%;height:100%;display:block;object-fit:cover}
+.public-profile-label{display:flex;flex-direction:column;line-height:1.2;max-width:130px}
+.public-profile-label strong{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.public-profile-label small{font-size:11px;color:#8295a4;margin-top:4px}
+.public-nav-links .public-login{background:#edf7ff;color:#076eb7;padding:10px 14px;border-radius:9px}
+.public-nav-links .public-admin-link{color:#7890a2;font-size:12px}
+/* Adaptação do layout para diferentes dimensões de ecrã. */
+@media(max-width:980px){.public-nav{flex-wrap:wrap}.public-nav-links{width:100%;justify-content:flex-start}}
+/* Adaptação do layout para diferentes dimensões de ecrã. */
+@media(max-width:650px){.public-nav{gap:10px}.public-nav-links{gap:10px 15px}.public-nav-links>a{font-size:12px}.public-profile-label{max-width:100px}.public-nav .brand strong{font-size:21px}}
+
+/* Cabeçalho público fixo durante a rolagem. */
+html{scroll-padding-top:110px}
+.public-top{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 3px 12px rgba(22,51,75,.055)}
+.public-top .public-nav{position:relative}
+#produtos{scroll-margin-top:110px}
+/* Rodapé público com a mesma identidade visual do painel administrativo. */
+body{min-height:100vh;display:flex;flex-direction:column}
+body>main{flex:1 0 auto}
+.public-footer{margin-top:auto;background:#263747;color:#f5f9fc;border-top:1px solid #334e65}
+.public-footer-inner{max-width:1180px;margin:auto;padding:22px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.public-footer-brand{display:flex;flex-direction:column;gap:5px}
+.public-footer-brand strong{font-size:17px;color:#fff}
+.public-footer-brand span{font-size:12px;color:#c6d5e3}
+.public-footer-meta{display:flex;align-items:center;gap:18px;flex-wrap:wrap;font-size:12px;color:#c6d5e3}
+.public-footer-meta a{color:#dcecf8;text-decoration:none}
+.public-footer-meta a:hover{color:#fff;text-decoration:underline}
+/* Adaptação do layout para diferentes dimensões de ecrã. */
+@media(max-width:650px){.public-footer-inner{align-items:flex-start;flex-direction:column;padding:22px 15px}.public-footer-meta{gap:10px 16px}html{scroll-padding-top:140px}}
+
+/* Menu de categorias da loja: mantém a identidade visual original. */
+.public-products-menu{position:relative;display:inline-flex;align-items:center;gap:2px;flex:0 0 auto}
+.public-products-link{font-size:13px;font-weight:600;color:#48677e;white-space:nowrap}
+.public-products-link:hover,.public-products-menu.is-open .public-products-link{color:#0874c5}
+.public-products-toggle{width:24px;height:30px;border:0;background:transparent;color:#59788e;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;border-radius:6px}
+.public-products-toggle:hover,.public-products-toggle:focus-visible{background:#edf7ff;color:#0874c5}
+.public-products-toggle svg{transition:transform .2s ease}
+.public-products-menu.is-open .public-products-toggle svg{transform:rotate(180deg)}
+.public-products-dropdown{display:none;position:absolute;top:calc(100% + 12px);left:-18px;min-width:245px;max-width:min(340px,calc(100vw - 30px));max-height:65vh;overflow-y:auto;padding:10px;background:#fff;border:1px solid #e4edf5;border-radius:13px;box-shadow:0 16px 40px rgba(18,48,76,.16);z-index:1500}
+.public-products-menu.is-open .public-products-dropdown{display:flex;flex-direction:column}
+.public-products-dropdown a{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:8px;color:#37586e;font-size:13px;font-weight:500;white-space:normal}
+.public-products-dropdown a:hover,.public-products-dropdown a[aria-current="page"]{background:#edf7ff;color:#076eb7}
+.public-products-heading{padding:9px 12px 7px;font-size:10px;letter-spacing:1.3px;font-weight:800;color:#7d94a7}
+.public-products-dropdown .public-category-all{font-weight:700;color:#0874c5}
+.public-category-bullet{width:7px;height:7px;flex:0 0 7px;background:#91c9ec;border-radius:50%}
+.public-categories-empty{font-size:12px;color:#7d94a7;padding:10px}
+.public-top{position:sticky;top:0;z-index:1000}
+/* Adaptação do layout para diferentes dimensões de ecrã. */
+@media(max-width:650px){.public-products-link{font-size:12px}.public-products-dropdown{left:-35px}}
+
+/* Logótipo TechShop em ambas as áreas */
+.brand-mark:has(.ts-brand-logo){display:inline-flex;align-items:center;justify-content:center;overflow:hidden;background:transparent;padding:0;border:0}
+.ts-brand-logo{width:48px;height:48px;object-fit:contain;display:block;border-radius:12px}
+.admin-logo-icon:has(.ts-admin-logo){display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;padding:0;overflow:hidden}
+.ts-admin-logo{width:38px;height:38px;object-fit:contain;display:block;border-radius:9px}

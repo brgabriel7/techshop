@@ -1,0 +1,32 @@
+/*
+ * Módulo painel moderno da plataforma TechShop.
+ * Projecto: TechShop — Loja Virtual de Acessórios Informáticos
+ * Autor: Bernabé Rofino Gabriel
+ * Instituição: Universidade Licungo
+ * Curso: Mestrado em Tecnologias Educativas e Inovação
+ * Módulo: Aplicações Web
+ * Docente: Prof. Félix Singo
+ * Ano: 2026
+ * Direitos: Todos os direitos reservados.
+ */
+
+/* Painel TechShop: estilos isolados, sem alterar os formulários existentes. */
+.painel-v3{max-width:1200px;margin:30px auto 65px;padding:0 24px}
+.pv-welcome{background:linear-gradient(115deg,#fff 0%,#f0f8ff 100%);border:1px solid #e2ecf4;border-radius:18px;padding:26px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.pv-intro{display:flex;align-items:center;gap:20px;min-width:0}.pv-avatar{width:76px;height:76px;flex:0 0 76px;border-radius:50%;background:#e1f0fc;border:3px solid white;box-shadow:0 4px 16px #19334a18;display:grid;place-items:center;color:#137cb8;font-size:27px;font-weight:700;overflow:hidden}.pv-avatar img{width:100%;height:100%;object-fit:cover}.pv-eyebrow{font-size:10px;letter-spacing:1.6px;font-weight:800;color:#1682c7;margin-bottom:7px}.pv-welcome h1{font-size:25px;line-height:1.25;margin:0 0 7px;color:#21364b}.pv-welcome p,.pv-section-title p,.pv-panel p{color:#73869a;margin:0;line-height:1.6}.pv-profile-link{flex-shrink:0;background:white;border:1px solid #d8e8f4;padding:11px 15px;border-radius:10px;font-size:13px;font-weight:650}.pv-section-title{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:30px 0 17px}.pv-section-title h2,.pv-panel h2{font-size:19px;margin:0 0 5px;color:#24384c}.pv-today{background:#eaf2f9;color:#59728a;padding:8px 12px;border-radius:9px;font-size:12px;white-space:nowrap}.pv-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.pv-stat{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid #e4ebf2;border-radius:14px;padding:22px 23px;min-height:160px;color:#253449;box-shadow:0 3px 12px #26374706;transition:transform .15s,box-shadow .15s}.pv-stat:hover{transform:translateY(-3px);box-shadow:0 10px 25px #26374713}.pv-stat-top{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#536a7e;font-size:13px;font-weight:600}.pv-stat-icon{width:34px;height:34px;flex:0 0 34px;display:grid;place-items:center;border-radius:10px;font-size:19px;background:#eaf5ff;color:#167ec3}.pv-stat strong{font-size:32px;line-height:1;color:#21364b}.pv-stat small{font-size:11px;color:#7890a3;margin-top:auto;line-height:1.5}.pv-green .pv-stat-icon{background:#e7f8ef;color:#1ca36b}.pv-orange .pv-stat-icon{background:#fff4e5;color:#d78a23}.pv-purple .pv-stat-icon{background:#f0edff;color:#7956c7}.pv-cyan .pv-stat-icon{background:#e8f8fa;color:#1590a3}.pv-red .pv-stat-icon{background:#ffedf0;color:#d45769}.pv-bottom{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(280px,1fr);gap:18px;margin-top:22px}.pv-panel{background:#fff;border:1px solid #e4ebf2;border-radius:15px;padding:25px;min-width:0}.pv-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px}.pv-actions a{display:flex;align-items:center;gap:12px;padding:14px 12px;border:1px solid #e4ecf3;border-radius:11px;color:#24384c;min-width:0}.pv-actions a:hover{background:#f4faff;border-color:#b8dff6}.pv-action-icon{display:grid;place-items:center;flex:0 0 39px;width:39px;height:39px;border-radius:10px;background:#eaf5fd;color:#1682c7;font-size:23px}.pv-actions a>span:nth-child(2){display:flex;flex-direction:column;gap:4px;min-width:0}.pv-actions strong{font-size:13px}.pv-actions small{font-size:11px;color:#7a8da0}.pv-arrow{margin-left:auto;color:#90a5b7;font-size:24px}.pv-side{display:flex;flex-direction:column}.pv-side-art{background:linear-gradient(135deg,#eaf6ff,#dceefb);border-radius:12px;margin:18px 0;min-height:100px;display:grid;place-items:center;color:#83bce3;font-size:68px}.pv-store-button{background:#168bd5;color:white!important;border-radius:9px;padding:13px;text-align:center;font-size:13px;font-weight:700}.pv-store-button:hover{background:#0e73b8}.pv-secondary-link{text-align:center;margin-top:14px;font-size:12px}
+/* Adaptação do layout para diferentes dimensões de ecrã. */
+@media(max-width:950px){.pv-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.pv-bottom{grid-template-columns:1fr}}@media(max-width:600px){.painel-v3{padding:0 14px;margin-top:18px}.pv-welcome{padding:19px;align-items:flex-start;flex-direction:column}.pv-intro{gap:12px}.pv-avatar{width:54px;height:54px;flex-basis:54px}.pv-welcome h1{font-size:19px}.pv-stats{grid-template-columns:1fr;gap:11px}.pv-stat{min-height:135px}.pv-actions{grid-template-columns:1fr}.pv-panel{padding:19px}.pv-today{display:none}}
+
+/* Cartões: recuperar a identidade original (fundo branco e barra lateral colorida). */
+.pv-stat{border:1px solid #e5edf4;border-left:4px solid #1e9bd8;border-radius:9px;min-height:137px;padding:20px 22px;box-shadow:none;gap:9px}
+.pv-stat:hover{box-shadow:0 5px 16px #2637470c}
+.pv-stat.pv-blue{border-left-color:#1e9bd8}
+.pv-stat.pv-green{border-left-color:#21c18b}
+.pv-stat.pv-orange{border-left-color:#f26a70}
+.pv-stat.pv-purple{border-left-color:#1e9bd8}
+.pv-stat.pv-cyan{border-left-color:#21c18b}
+.pv-stat.pv-red{border-left-color:#f26a70}
+.pv-stat strong{font-size:29px}
+.pv-stat-icon{width:30px;height:30px;border-radius:8px}
+.ts-icon{display:inline-block;vertical-align:middle;flex-shrink:0}
+.pv-side-art .ts-icon{width:65px;height:65px}

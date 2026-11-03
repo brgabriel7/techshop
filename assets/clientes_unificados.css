@@ -1,0 +1,13 @@
+/*
+ * Módulo clientes unificados da plataforma TechShop.
+ * Projecto: TechShop — Loja Virtual de Acessórios Informáticos
+ * Autor: Bernabé Rofino Gabriel
+ * Instituição: Universidade Licungo
+ * Curso: Mestrado em Tecnologias Educativas e Inovação
+ * Módulo: Aplicações Web
+ * Docente: Prof. Félix Singo
+ * Ano: 2026
+ * Direitos: Todos os direitos reservados.
+ */
+
+.unified-clients{max-width:1160px}.unified-filters{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 24px}.unified-filters input{flex:1;min-width:220px;max-width:410px}.unified-filters select{min-width:185px}.unified-filters input,.unified-filters select{border:1px solid #d9e5ef;border-radius:7px;padding:12px;background:white;color:#263747}.unified-filters button{border:0;border-radius:7px;background:#087bc5;color:#fff;padding:12px 20px;cursor:pointer}.unified-table-wrap{overflow-x:auto;background:#fff;border:1px solid #e2eaf1;border-radius:14px;box-shadow:0 6px 22px #152d4410}.unified-table{width:100%;border-collapse:collapse;min-width:790px}.unified-table th{text-align:left;padding:17px 19px;background:#f8fbfe;color:#33485d;font-size:13px}.unified-table td{padding:16px 19px;border-top:1px solid #eef2f5;font-size:14px;vertical-align:middle}.unified-client{display:flex;align-items:center;gap:12px}.unified-client strong{display:block;color:#20364b}.unified-client small{display:block;color:#7890a4;margin-top:4px}.unified-avatar{width:44px;height:44px;flex:0 0 44px;object-fit:cover;border-radius:50%;border:2px solid #e1eff8}.unified-avatar-fallback{display:flex;align-items:center;justify-content:center;background:#e9f4fc;color:#1279b6;font-weight:700}.unified-tag{display:inline-block;border-radius:100px;padding:6px 10px;font-size:12px;font-weight:700;white-space:nowrap}.unified-tag.online{background:#e6f5ec;color:#247849}.unified-tag.manual{background:#eaf2fd;color:#266ca6}.unified-note{font-size:12px;color:#74879a;margin-top:17px;line-height:1.6}.unified-empty{text-align:center;padding:30px!important;color:#7d8fa0}@media(max-width:650px){.unified-filters>*{width:100%;max-width:none!important}.unified-clients .rowhead{flex-wrap:wrap;gap:15px}}

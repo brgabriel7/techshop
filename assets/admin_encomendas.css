@@ -1,0 +1,46 @@
+/*
+ * Módulo admin encomendas da plataforma TechShop.
+ * Projecto: TechShop — Loja Virtual de Acessórios Informáticos
+ * Autor: Bernabé Rofino Gabriel
+ * Instituição: Universidade Licungo
+ * Curso: Mestrado em Tecnologias Educativas e Inovação
+ * Módulo: Aplicações Web
+ * Docente: Prof. Félix Singo
+ * Ano: 2026
+ * Direitos: Todos os direitos reservados.
+ */
+
+/* Gestão de encomendas — mesmo visual limpo do painel TechShop */
+.orders-wrap{max-width:1180px;margin:36px auto 70px;padding:0 20px;color:#203247}
+.orders-heading{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:24px}
+.orders-heading h1{font-size:clamp(25px,3vw,34px);margin:6px 0 9px}
+.orders-heading p{color:#72869a;margin:0;line-height:1.5}
+.orders-kicker{font-size:11px;font-weight:800;letter-spacing:1.2px;color:#0874c5}
+.orders-back{color:#0874c5;text-decoration:none;font-weight:700;white-space:nowrap}
+.orders-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:24px}
+.orders-stat{display:flex;flex-direction:column;gap:12px;background:white;border:1px solid #e0eaf2;border-radius:14px;padding:20px;text-decoration:none;color:#344e64}
+.orders-stat.selected{border-color:#0b83ce;box-shadow:0 0 0 2px #d9efff}
+.orders-stat span{font-size:13px}.orders-stat strong{font-size:30px;color:#16364d}
+.orders-panel{background:#fff;border:1px solid #e2eaf1;border-radius:15px;padding:24px;margin-bottom:20px;min-width:0}
+.orders-panel h2{font-size:19px;margin:0 0 20px}
+.orders-filter{margin-bottom:20px}.orders-filter label{font-size:13px;font-weight:700;display:block;margin-bottom:9px}
+.orders-filter-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.orders-filter-row input{flex:1 1 270px;min-width:0}.orders-filter-row select{flex:0 1 195px}
+.orders-filter-row input,.orders-filter-row select{border:1px solid #dce6ef;background:#fff;border-radius:9px;padding:11px 12px;min-height:43px}
+.orders-filter-row button{border:0;border-radius:9px;background:#0874c5;color:#fff;padding:12px 19px;cursor:pointer;font-weight:700}
+.orders-table-scroll{width:100%;overflow-x:auto}.orders-table{border-collapse:collapse;width:100%;min-width:850px;text-align:left}
+.orders-table th{background:#f6f9fc;font-size:12px;color:#687e90;white-space:nowrap;padding:13px 12px}
+.orders-table td{border-bottom:1px solid #eaf0f5;padding:16px 12px;font-size:13px;vertical-align:middle}
+.orders-table td strong{display:block}.orders-table td small{display:block;color:#7e92a4;margin-top:5px}
+.orders-price{font-weight:700;white-space:nowrap}.orders-badge{display:inline-block;border-radius:30px;padding:6px 10px;font-weight:700;font-size:12px}
+.orders-badge.pendente{background:#fff2d7;color:#946000}.orders-badge.pago{background:#e1f5e8;color:#217a43}.orders-badge.cancelado{background:#fce8e8;color:#aa4545}
+.orders-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.orders-actions form{margin:0}
+.orders-actions button,.orders-detail{border-radius:7px;border:1px solid #dce6ee;padding:8px 10px;font-size:12px;font-weight:700;white-space:nowrap;cursor:pointer;text-decoration:none;display:inline-block}
+.orders-detail{background:#edf7ff;color:#096ba9}.orders-actions .orders-confirm{background:#e5f6eb;color:#16723b;border-color:#d0edda}.orders-actions .orders-cancel{background:#fff1f1;color:#a94242;border-color:#f5dddd}
+.orders-footnote{font-size:12px;color:#8093a3;margin:17px 0 0}.orders-empty{text-align:center;color:#748899;padding:28px!important}
+.orders-alert{padding:13px 16px;border-radius:9px;margin:0 0 18px;font-size:14px}.orders-success{background:#e2f5e9;color:#166a36}.orders-error{background:#ffe9e9;color:#9c3030}
+.orders-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.orders-info dl{display:grid;grid-template-columns:155px 1fr;gap:14px;margin:0}.orders-info dt{color:#7a8fa0}.orders-info dd{margin:0;font-weight:600;overflow-wrap:anywhere}
+/* Adaptação do layout para diferentes dimensões de ecrã. */
+@media(max-width:800px){.orders-stats{grid-template-columns:repeat(2,1fr)}.orders-detail-grid{grid-template-columns:1fr}}
+/* Adaptação do layout para diferentes dimensões de ecrã. */
+@media(max-width:560px){.orders-heading{align-items:flex-start;flex-direction:column}.orders-stats{gap:9px}.orders-stat{padding:14px}.orders-stat strong{font-size:24px}.orders-panel{padding:14px}.orders-info dl{grid-template-columns:1fr;gap:6px}.orders-info dd{margin-bottom:12px}}
