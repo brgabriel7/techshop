@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 03/11/2026 às 20:34
+-- Tempo de geração: 03/11/2026 às 22:22
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -33,12 +33,36 @@ CREATE TABLE `carrinho_guardado` (
   `quantidade` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- --------------------------------------------------------
+
 --
--- Despejando dados para a tabela `carrinho_guardado`
+-- Estrutura para tabela `categorias_produtos`
 --
 
-INSERT INTO `carrinho_guardado` (`cliente_id`, `produto_id`, `quantidade`) VALUES
-(1, 3, 1);
+CREATE TABLE `categorias_produtos` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nome` varchar(120) NOT NULL,
+  `criado_em` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `categorias_produtos`
+--
+
+INSERT INTO `categorias_produtos` (`id`, `nome`, `criado_em`) VALUES
+(1, 'Rato', '2026-11-03 21:07:28'),
+(2, 'Access Points', '2026-11-03 21:07:28'),
+(3, 'Armazenamento', '2026-11-03 21:07:28'),
+(4, 'Teclados', '2026-11-03 21:07:28'),
+(5, 'Impressão e Consumíveis', '2026-11-03 21:07:28'),
+(6, 'Áudio e Vídeo', '2026-11-03 21:07:28'),
+(8, 'Ratos', '2026-11-03 21:07:28'),
+(9, 'Cabos e adaptadores', '2026-11-03 21:07:28'),
+(10, 'Redes e conectividade', '2026-11-03 21:07:28'),
+(11, 'Acessórios para portáteis', '2026-11-03 21:07:28'),
+(12, 'Impressoras e consumíveis', '2026-11-03 21:07:28'),
+(13, 'Monitores', '2026-11-03 21:07:28'),
+(14, 'Outros', '2026-11-03 21:07:28');
 
 -- --------------------------------------------------------
 
@@ -107,7 +131,11 @@ INSERT INTO `encomendas` (`id`, `nome_cliente`, `telefone`, `endereco`, `metodo_
 (2, 'Bernabé Rofino Gabriel', '848677983', 'Quelimane', 'emola', 2000.00, 'cancelado', '2026-10-23 17:59:20', NULL),
 (3, 'Luana', '872872515', 'Quelimane', 'mpesa', 7000.00, 'pendente', '2026-11-03 14:45:09', NULL),
 (4, 'Joãozinho', '846992821', 'Quelimane', 'emola', 3.00, 'pendente', '2026-11-03 15:00:50', NULL),
-(5, 'Bernabe', '872872515', 'Carlos', 'mpesa', 0.03, 'pago', '2026-11-03 15:04:23', NULL);
+(5, 'Bernabe', '872872515', 'Carlos', 'mpesa', 0.03, 'pago', '2026-11-03 15:04:23', NULL),
+(6, 'Jorge', '872872515', 'Aq', 'mpesa', 780.00, 'pendente', '2026-11-03 19:47:24', NULL),
+(7, 'Luana', '872872515', '', 'mpesa', 4981.98, 'pago', '2026-11-03 20:04:44', 1),
+(8, 'Luana', '872872515', '', 'mpesa', 999.00, 'pendente', '2026-11-03 20:06:23', 1),
+(9, 'Luana', '872872515', '', 'mpesa', 780.00, 'pendente', '2026-11-03 20:58:41', 1);
 
 -- --------------------------------------------------------
 
@@ -132,7 +160,11 @@ INSERT INTO `encomenda_itens` (`id`, `encomenda_id`, `produto_id`, `quantidade`,
 (2, 2, NULL, 2, 1000.00),
 (3, 3, NULL, 7, 1000.00),
 (4, 4, NULL, 1, 3.00),
-(5, 5, NULL, 3, 0.01);
+(5, 5, NULL, 3, 0.01),
+(6, 6, 10, 1, 780.00),
+(7, 7, 11, 2, 2490.99),
+(8, 8, 9, 1, 999.00),
+(9, 9, 10, 1, 780.00);
 
 -- --------------------------------------------------------
 
@@ -148,20 +180,21 @@ CREATE TABLE `produtos` (
   `stock` int(11) NOT NULL,
   `mensagem` text DEFAULT NULL,
   `data_registo` timestamp NOT NULL DEFAULT current_timestamp(),
-  `imagem` varchar(255) DEFAULT NULL
+  `imagem` varchar(255) DEFAULT NULL,
+  `comentarios` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Despejando dados para a tabela `produtos`
 --
 
-INSERT INTO `produtos` (`id`, `nome`, `categoria`, `preco`, `stock`, `mensagem`, `data_registo`, `imagem`) VALUES
-(7, 'Rato sem fio - Logitech M185', 'Rato', 899.90, 20, NULL, '2026-11-03 19:20:46', '4afbd9117e6a675786fe5094ff93b7c5.jpg'),
-(8, 'TP-Link Archer C6', 'Access Points', 4980.50, 12, NULL, '2026-11-03 19:23:19', '4f4a6bbb0c5a9db3e1edf48fa717c6b9.jpg'),
-(9, 'Kingston DataTraveler 64 GB', 'Armazenamento', 999.00, 5, NULL, '2026-11-03 19:25:18', '7d4e8084250d9780d2305d465ab2d6f7.jpg'),
-(10, 'Logitech K120 USB', 'Teclados', 780.00, 3, NULL, '2026-11-03 19:27:07', '1b80c822702c4565b401356a1ff792a7.jpg'),
-(11, 'Toner HP 26A, tinta Epson 003', 'Impressão e Consumíveis', 2490.99, 5, NULL, '2026-11-03 19:28:58', '3e35197f92280aaba3be477aff8b0519.jpg'),
-(12, 'Auscultadores com microfone + webcam', 'Áudio e Vídeo', 6200.00, 2, NULL, '2026-11-03 19:31:45', 'ebd2ab0b907039762178e23363789eb2.jpg');
+INSERT INTO `produtos` (`id`, `nome`, `categoria`, `preco`, `stock`, `mensagem`, `data_registo`, `imagem`, `comentarios`) VALUES
+(7, 'Rato sem fio - Logitech M185', 'Rato', 899.90, 20, NULL, '2026-11-03 19:20:46', '4afbd9117e6a675786fe5094ff93b7c5.jpg', NULL),
+(8, 'TP-Link Archer C6', 'Access Points', 4980.50, 12, NULL, '2026-11-03 19:23:19', '4f4a6bbb0c5a9db3e1edf48fa717c6b9.jpg', NULL),
+(9, 'Kingston DataTraveler 64 GB', 'Armazenamento', 999.00, 4, NULL, '2026-11-03 19:25:18', '7d4e8084250d9780d2305d465ab2d6f7.jpg', NULL),
+(10, 'Logitech K120 USB', 'Teclados', 780.00, 6, NULL, '2026-11-03 19:27:07', '1b80c822702c4565b401356a1ff792a7.jpg', NULL),
+(11, 'Toner HP 26A, tinta Epson 003', 'Impressão e Consumíveis', 2490.99, 3, NULL, '2026-11-03 19:28:58', '3e35197f92280aaba3be477aff8b0519.jpg', NULL),
+(12, 'Auscultadores com microfone + webcam', 'Áudio e Vídeo', 6200.00, 7, NULL, '2026-11-03 19:31:45', 'ebd2ab0b907039762178e23363789eb2.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -213,6 +246,13 @@ INSERT INTO `utilizadores` (`id`, `nome`, `senha_hash`, `criado_em`, `foto`) VAL
 --
 ALTER TABLE `carrinho_guardado`
   ADD PRIMARY KEY (`cliente_id`,`produto_id`);
+
+--
+-- Índices de tabela `categorias_produtos`
+--
+ALTER TABLE `categorias_produtos`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nome` (`nome`);
 
 --
 -- Índices de tabela `clientes`
@@ -267,6 +307,12 @@ ALTER TABLE `utilizadores`
 --
 
 --
+-- AUTO_INCREMENT de tabela `categorias_produtos`
+--
+ALTER TABLE `categorias_produtos`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
@@ -282,13 +328,13 @@ ALTER TABLE `contas_clientes`
 -- AUTO_INCREMENT de tabela `encomendas`
 --
 ALTER TABLE `encomendas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `encomenda_itens`
 --
 ALTER TABLE `encomenda_itens`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`

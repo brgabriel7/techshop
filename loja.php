@@ -47,7 +47,7 @@ function foto_produto($imagem) {
 <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=2">
 <link rel="apple-touch-icon" href="assets/techshop-icon-192.png?v=2"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Loja Virtual | TechShop</title><link rel="stylesheet" href="assets/loja.css?v=20261103-menu"></head><body>
+<title>Loja Virtual | TechShop</title><link rel="stylesheet" href="assets/loja.css?v=20261104-mobile"></head><body>
 <?php include __DIR__.'/public_header.php';
  ?>
 <main class="wrap">
@@ -96,7 +96,7 @@ function foto_produto($imagem) {
 </section>
 <?php endif;
  ?>
-<section class="features" aria-label="Vantagens"><span>✓ Stock actualizado</span><span>✓ Preços em meticais</span><span>✓ Atendimento por WhatsApp</span></section>
+
 <section id="produtos" class="catalog"><div class="heading"><div><span class="eyebrow">CATÁLOGO</span><h2>Os nossos produtos</h2><p><?=count($produtos)?> produto(s) encontrado(s)</p></div></div>
 <form class="filters" method="get" action="loja.php"><label class="search"><span class="sr">Pesquisar</span><input type="search" name="q" placeholder="Pesquisar produto ou categoria..." value="<?=h($busca)?>"></label><label class="sr" for="categoria">Categoria</label><select name="categoria" id="categoria"><option value="">Todas as categorias</option><?php foreach($categorias as $cat): ?><option value="<?=h($cat)?>" <?=$categoria===$cat?'selected':''?>><?=h($cat)?></option><?php endforeach;
  ?></select><button type="submit" class="primary">Pesquisar</button><a class="clear" href="loja.php">Limpar</a></form>
@@ -109,7 +109,13 @@ function foto_produto($imagem) {
  ?></div></article>
 <?php endforeach;
  ?></div><?php endif;
- ?></section>
+ ?>
+
+<section class="features" aria-label="Vantagens"><span>✓ Stock actualizado</span><span>✓ Preços em meticais</span><span>✓ Atendimento por WhatsApp</span></section>
+
+</section>
+
+ 
 </main><?php include __DIR__ . '/voltar_topo.php';
  ?><script src="assets/banner.js" defer></script><script src="assets/slides.js" defer></script><?php include __DIR__.'/public_footer.php';
  ?>

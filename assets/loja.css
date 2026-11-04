@@ -187,3 +187,65 @@ body>main{flex:1 0 auto}
 .ts-brand-logo{width:48px;height:48px;object-fit:contain;display:block;border-radius:12px}
 .admin-logo-icon:has(.ts-admin-logo){display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;padding:0;overflow:hidden}
 .ts-admin-logo{width:38px;height:38px;object-fit:contain;display:block;border-radius:9px}
+
+/* TECHSHOP — MOBILE 2026
+ * Autor: Bernabé Rofino Gabriel | Universidade Licungo
+ * Mestrado em Tecnologias Educativas e Inovação
+ * Módulo: Aplicações Web | Docente: Prof. Félix Singo
+ * Regras responsivas, sem modificar a apresentação desktop.
+ */
+.public-mobile-toggle { display:none; }
+.hero-slider .hero-slide h1 { overflow-wrap:anywhere; }
+@media (max-width:650px) {
+  /* Cabeçalho: marca e botão de menu na mesma linha. */
+  .public-nav {display:grid;grid-template-columns:minmax(0,1fr) 44px;align-items:center;gap:10px;min-height:70px;padding-top:10px;padding-bottom:10px}
+  .public-nav .brand {min-width:0;gap:9px}
+  .public-nav .brand strong {font-size:20px}
+  .public-nav .brand small {font-size:11px}
+  .public-nav .ts-brand-logo {width:42px;height:42px}
+  .public-mobile-toggle {display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:44px;height:44px;border:1px solid #d7e8f5;border-radius:10px;background:#f0f8ff;cursor:pointer}
+  .public-mobile-toggle span {width:20px;height:2px;background:#0874c5;border-radius:2px}
+  .public-mobile-toggle:focus-visible {outline:3px solid #78b9ee;outline-offset:2px}
+  /* Menu expansível, sem quebras entre links e avatar. */
+  .public-nav-links {display:none;grid-column:1/-1;width:100%;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:0;padding:8px 0 5px;border-top:1px solid #e9f0f6}
+  .public-nav-links.is-mobile-open {display:flex}
+  .public-nav-links>a {display:flex;align-items:center;min-height:44px;padding:10px 12px;border-radius:8px;font-size:14px;white-space:normal}
+  .public-products-menu {width:100%;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between}
+  .public-products-link {flex:1;padding:12px;font-size:14px}
+  .public-products-toggle {width:44px;height:44px}
+  .public-products-dropdown {position:static;order:3;flex-basis:100%;min-width:0;max-width:100%;max-height:260px;margin-bottom:8px;box-shadow:none}
+  .public-profile-label {max-width:none}
+  /* Slider: imagem e texto empilhados, sem corte horizontal. */
+  .wrap {width:100%;padding-left:15px;padding-right:15px}
+  .hero.hero-slider {height:auto;min-height:0;margin:16px 0;border-radius:16px}
+  .hero-slider .hero-slides {height:540px}
+  .hero-slider .hero-slide {display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:12px;padding:22px 20px 76px;overflow:hidden}
+  .hero-slider .hero-text {flex:0 0 auto;width:100%;min-width:0}
+  .hero-slider .hero-slide h1 {font-size:clamp(23px,6vw,30px);line-height:1.18;margin:9px 0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .hero-slider .hero-slide p {font-size:12px;line-height:1.5;margin:6px 0}
+  .hero-slider .hero-price {font-size:23px;margin:8px 0}
+  .hero-slider .hero-slide .primary {padding:11px 16px}
+  .hero-slider .hero-slide-photo {flex:1 1 auto;width:100%;min-height:0;height:auto;max-height:210px;padding:10px;margin-top:3px}
+  .hero-slider .hero-slide-photo img {width:100%;height:100%;max-height:190px;object-fit:contain}
+  .hero-slider .hero-controls {left:12px;right:12px;bottom:12px;justify-content:center;flex-wrap:wrap;gap:7px}
+  /* Catálogo, pesquisa e cartões adequados ao toque. */
+  .filters {display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .filters .search {grid-column:1/-1}
+  .filters input,.filters select,.filters button {min-height:44px;width:100%}
+  .filters .clear {display:flex;align-items:center;justify-content:center}
+  .grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .photo {height:145px}
+  .details {padding:11px}
+  .details h3 {min-height:38px;font-size:13px}
+  .contact {min-height:40px}
+  .showcase {padding:17px 12px}
+  .showcase-card {flex:0 0 78%}
+  .showcase-photo {height:155px}
+  .cart-layout {grid-template-columns:minmax(0,1fr)}
+  .cart-panel {padding:15px}
+}
+@media (max-width:360px) {
+  .hero-slider .hero-slides {height:560px}
+  .grid {grid-template-columns:1fr}
+  .showcase-card {flex-basis:88%}
+}

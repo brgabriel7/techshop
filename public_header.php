@@ -57,7 +57,11 @@ try {
 <header class="top public-top">
  <div class="wrap public-nav">
   <a class="brand" href="loja.php" aria-label="TechShop, página inicial"><span class="brand-mark"><img class="ts-brand-logo" src="assets/techshop-logo.png" alt="" width="48" height="48"></span><span><strong>TechShop</strong><small>Acessórios informáticos</small></span></a>
-  <nav class="public-nav-links" aria-label="Menu da loja">
+  <!-- Navegação responsiva: botão acessível para ecrãs pequenos. -->
+  <button class="public-mobile-toggle" type="button" aria-controls="techshop-mobile-navigation" aria-expanded="false" aria-label="Abrir menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="techshop-mobile-navigation" class="public-nav-links" aria-label="Menu da loja">
    <a href="loja.php">Início</a>
    <div class="public-products-menu">
     <a class="public-products-link" href="loja.php#produtos">Produtos</a>
@@ -102,6 +106,19 @@ try {
 
 <script>
 (function(){
+  // Controla a abertura e o fecho do menu móvel.
+  const mobileToggle = document.querySelector('.public-mobile-toggle');
+  const mobileNav = document.getElementById('techshop-mobile-navigation');
+  const closeMobile = () => {
+    mobileNav?.classList.remove('is-mobile-open');
+    mobileToggle?.setAttribute('aria-expanded', 'false');
+  };
+  mobileToggle?.addEventListener('click', () => {
+    const opened = mobileNav.classList.toggle('is-mobile-open');
+    mobileToggle.setAttribute('aria-expanded', String(opened));
+  });
+  mobileNav?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobile));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobile(); });
   const menu = document.querySelector('.public-products-menu');
   if (!menu) return;
   const toggle = menu.querySelector('.public-products-toggle');
